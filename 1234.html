@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
+  <title>生日快乐 · 瓜瓜</title>
+  <style>
+    html,body{
+      margin:0;
+      padding:0;
+      overflow:hidden;
+      width:100%;
+      height:100%;
+      background: radial-gradient(circle at 50% 20%, #4b3c7d 0%, #1b1538 70%);
+      font-family:"PingFang SC","Helvetica Neue",sans-serif;
+      color:white;
+    }
+
+    /* 居中文本容器 */
+    #titleBox{
+      position:absolute;
+      top:50%;
+      left:50%;
+      transform:translate(-50%, -50%);
+      text-align:center;
+      z-index:5;
+      width:100%;
+      pointer-events:none;
+    }
+
+    /* 主标题 */
+    #mainTitle{
+      font-size:2.8rem;
+      font-weight:700;
+      letter-spacing:4px;
+      background:linear-gradient(45deg,#ffb7e3,#ffd161,#ff8ac9,#ffe6a7);
+      -webkit-background-clip:text;
+      color:transparent;
+      text-shadow:0 0 18px rgba(255,120,200,0.9);
+      animation:heartbeat 2s infinite ease-in-out;
+      margin:0 0 22px 0;
+    }
+
+    @keyframes heartbeat {
+      0%   { transform:scale(1); }
+      20%  { transform:scale(1.1); }
+      40%  { transform:scale(1); }
+      60%  { transform:scale(1.08); }
+      80%  { transform:scale(1); }
+    }
+
+    /* 副标题 */
+    #subTitle{
+      font-size:1.3rem;
+      opacity:0.9;
+      letter-spacing:2px;
+      text-shadow:0 0 12px rgba(255,255,255,0.6);
+    }
+
+    /* 打开信件按钮 */
+    #openLetterBtn{
+      position:absolute;
+      right:12px;
+      bottom:12px;
+      padding:10px 16px;
+      border-radius:10px;
+      background:rgba(255,180,220,0.2);
+      border:1px solid rgba(255,160,220,0.4);
+      backdrop-filter:blur(6px);
+      text-shadow:0 0 8px rgba(255,200,255,0.8);
+      font-size:0.9rem;
+      z-index:10;
+    }
+
+    /* 信件遮罩 */
+    #letterPage{
+      display:none;
+      position:absolute;
+      top:0;left:0;
+      width:90%;height:100%;
+      background:rgba(0,0,0,0.85);
+      backdrop-filter:blur(4px);
+      padding:20px;
+      z-index:20;
+    }
+
+    /* 信件容器 */
+    #letterBook{
+      width:90%;
+      max-width:500px;
+      height:70%;
+      margin:50px auto 0 auto;
+      background:white;
+      color:#333;
+      padding:20px;
+      border-radius:12px;
+      box-shadow:0 0 25px rgba(255,120,200,0.4);
+      position:relative;
+      overflow:hidden;
+    }
+
+    .page{
+      width:100%;
+      height:100%;
+      position:absolute;
+      top:0;left:0;
+      padding:20px;
+      background:white;
+      transform-origin:left;
+      transition:transform 0.8s ease;
+      backface-visibility:hidden;
+      border-radius:10px;
+      box-sizing:border-box;
+    }
+
+    #closeLetter{
+      position:absolute;
+      top:10px;
+      left:10px;
+      background:#ff8ac9;
+      color:white;
+      padding:8px 14px;
+      border-radius:8px;
+      cursor:pointer;
+    }
+  </style>
+</head>
+<body>
+
+<!-- 居中标题 -->
+<div id="titleBox">
+  <h1 id="mainTitle">生日快乐 瓜瓜</h1>
+  <div id="subTitle">愿你所想所愿 皆可实现 ✨</div>
+</div>
+
+<!-- 打开信件按钮 -->
+<div id="openLetterBtn">写给瓜瓜的一封信 💌</div>
+
+<!-- 信件页面 -->
+<div id="letterPage">
+  <div id="letterBook">
+    <div class="page" id="letter1">
+      <h2>亲爱的瓜瓜：</h2>
+      <p>
+        生日快乐！在这个特别的日子里，送上最真诚的祝福。
+        愿你每天都能感受到温暖，生活中有平静与喜悦相伴。
+      </p>
+      <p>
+        愿每一个平凡的时刻都闪烁着细微的美好，每一次微笑都轻轻触动心底的安宁。
+        希望你度过的每一天都像阳光一样柔和，让人感到舒心。
+      </p>
+      <p>点击右边翻页 →</p>
+    </div>
+
+    <!-- 第二页 -->
+    <div class="page" id="letter2">
+      <h2>想对你说：</h2>
+      <p>
+        在这一天，愿你被温暖环绕，被宁静陪伴。
+        愿你的日子里充满细小而真实的美好瞬间，像柔和的风、清晨的光、平静的湖水。
+      </p>
+      <p>
+        祝福你在新的一岁里，每一刻都安然，每一个转角都平和。
+        愿平凡的日子里，依然能感受到生活的静美和光亮。
+      </p>
+      <p>点击右边翻页 →</p>
+    </div>
+
+    <!-- 第三页 -->
+    <div class="page" id="letter3">
+      <h2>最后：</h2>
+      <p>
+        生日快乐，瓜瓜 🎂
+        愿未来的日子里，所有简单而温暖的时光都属于你。
+        愿岁月温柔以待，你的每一日都静好而舒心。
+      </p>
+      <p>
+        祝你平安、喜乐、安宁，也愿你的每一个笑容都自然流露，每一次呼吸都轻松自在。
+      </p>
+      <p>左上返回</p>
+    </div>
+  </div>
+  <div id="closeLetter">返回</div>
+</div>
+
+<!-- 音乐 -->
+<audio id="bgMusic" loop src="https://cdn.jsdelivr.net/gh/yourcdn/softmusic.mp3"></audio>
+
+<!-- Three.js  -->
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/build/three.min.js"></script>
+
+<script>
+  /* ===== 打开信件 ===== */
+  let currentPage=0;
+  const pages=document.querySelectorAll('.page');
+  pages.forEach((p,i)=>{ if(i!==0) p.style.transform="rotateY(180deg)"; });
+
+  document.getElementById('openLetterBtn').onclick=()=>document.getElementById('letterPage').style.display='block';
+  document.getElementById('closeLetter').onclick=()=>document.getElementById('letterPage').style.display='none';
+
+  pages.forEach((p,i)=>{
+    p.onclick=()=>{
+      if(i<pages.length-1){
+        p.style.transform="rotateY(-180deg)";
+        pages[i+1].style.transform="rotateY(0deg)";
+      }
+    }
+  });
+
+  /* ===== 背景音乐 ===== */
+  const bgMusic=document.getElementById('bgMusic');
+  document.body.addEventListener('click',()=>{ bgMusic.play().catch(()=>{}); });
+
+  /* ===== Three.js 场景 ===== */
+  const scene=new THREE.Scene();
+  const camera=new THREE.PerspectiveCamera(60,window.innerWidth/window.innerHeight,1,2000);
+  camera.position.set(0,18,40);
+
+  const renderer=new THREE.WebGLRenderer({antialias:true,alpha:true});
+  renderer.setSize(window.innerWidth,window.innerHeight);
+  document.body.appendChild(renderer.domElement);
+
+  /* 星空 */
+  let stars=new THREE.Group();
+  scene.add(stars);
+  const starGeo=new THREE.SphereGeometry(0.1,6,6);
+  for(let i=0;i<900;i++){
+    let s=new THREE.Mesh(starGeo,new THREE.MeshBasicMaterial({color:0xffffff}));
+    s.position.set((Math.random()-0.5)*120,(Math.random()-0.5)*60,(Math.random()-0.5)*80);
+    stars.add(s);
+  }
+
+  /* 小爱心 */
+  function createHeart(x,y,z){
+    const shape=new THREE.Shape();
+    shape.moveTo(0,0);
+    shape.bezierCurveTo(0,3,-3,3,-3,0);
+    shape.bezierCurveTo(-3,-3,3,-3,3,0);
+    shape.bezierCurveTo(3,3,0,3,0,0);
+    const geo=new THREE.ExtrudeGeometry(shape,{depth:1,bevelEnabled:false});
+    const mat=new THREE.MeshPhongMaterial({color:0xff77aa,emissive:0xff4488,shininess:150});
+    const mesh=new THREE.Mesh(geo,mat);
+    mesh.position.set(x,y,z);
+    mesh.scale.set(0.3,0.3,0.3);
+    scene.add(mesh);
+    return mesh;
+  }
+  let hearts=[];
+  for(let i=0;i<10;i++){
+    hearts.push(createHeart((Math.random()-0.5)*25,Math.random()*14-4,(Math.random()-0.5)*20));
+  }
+
+  /* 烟花 */
+  function createFirework(){
+    const group=new THREE.Group();
+    const geo=new THREE.SphereGeometry(0.12,8,8);
+    let color=new THREE.Color(Math.random(),Math.random(),Math.random());
+    let mat=new THREE.MeshBasicMaterial({color});
+    for(let i=0;i<80;i++){
+      const p=new THREE.Mesh(geo,mat);
+      const angle=Math.random()*Math.PI*2;
+      const speed=Math.random()*0.5+0.3;
+      p.userData={vx:Math.cos(angle)*speed,vy:Math.random()*0.5+0.5,vz:Math.sin(angle)*speed};
+      group.add(p);
+    }
+    group.position.set((Math.random()-0.5)*20,4+Math.random()*12,(Math.random()-0.5)*15);
+    scene.add(group);
+
+    function explode(){
+      group.children.forEach(p=>{
+        p.position.x+=p.userData.vx;
+        p.position.y+=p.userData.vy;
+        p.position.z+=p.userData.vz;
+      });
+      requestAnimationFrame(explode);
+    }
+    explode();
+
+    setTimeout(()=>scene.remove(group),2000);
+  }
+  document.body.addEventListener('click',createFirework);
+
+  /* 动画 */
+  function animate(){
+    requestAnimationFrame(animate);
+    stars.rotation.y+=0.0008;
+    hearts.forEach((h,i)=>{h.rotation.y+=0.01; h.position.y+=Math.sin(Date.now()*0.001+i)*0.01;});
+    renderer.render(scene,camera);
+  }
+  animate();
+
+  /* 自适应 */
+  window.addEventListener('resize',()=>{
+    renderer.setSize(window.innerWidth,window.innerHeight);
+    camera.aspect=window.innerWidth/window.innerHeight;
+    camera.updateProjectionMatrix();
+  });
+</script>
+
+</body>
+</html>
